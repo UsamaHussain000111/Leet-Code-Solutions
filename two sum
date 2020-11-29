@@ -1,0 +1,35 @@
+language : python.
+1st simple brute force approach,
+
+def bruteforce_sol(target, array):
+    for i in range(len(array)):
+        for j in range(i + 1, len(array)):
+            if array[i] + array[j] == target:
+                return [i, j]
+print(bruteforce_sol(9 , [2, 7, 11, 15]))
+#complexity = O(n)^2
+
+2nd solution, using hashtable,
+
+def hashtable_sol(target, array):
+    hashtable = dict()
+    for i in range(len(array)):
+        if array[i] in hashtable:
+            return hashtable[array[i]] , array[i]
+        else:
+            hashtable[target - array[i]] = i
+print(hashtable_sol(26 , [2, 7, 11, 15]))
+#complexity = O(n)
+
+another solution, using dictionary
+
+def twosum(num, target):
+    h = {}
+    for i, num in enumerate(num):
+        n = target - num
+        if n not in h:
+            h[num] = i
+        else:
+            return [h[n] , i]
+input = [2,7,11,15]
+print(twosum(input, 9))
