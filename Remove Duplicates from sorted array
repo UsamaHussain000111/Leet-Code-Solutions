@@ -1,0 +1,11 @@
+simple solution using sliding window.
+
+def remove_duplicate(list):
+    first_point = list[0]
+    second_point = list[0]
+    for second_point in list:
+        if first_point != second_point:
+            first_point += 1
+            first_point = second_point
+    return first_point
+print(remove_duplicate([1,1,1,1,2,2,3,3,3,4,4,5,5,5,6,6,6]))
